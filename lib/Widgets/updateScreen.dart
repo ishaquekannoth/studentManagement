@@ -55,7 +55,4 @@ void goHome(BuildContext context,StudentData data,int index) {
     return (EditData(data: data,index: index,));
   })), (route) => false);
 }
-
-
-
 }

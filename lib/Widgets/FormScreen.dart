@@ -37,15 +37,20 @@ class _FormScreenState extends State<FormScreen> {
             onTap: () {
               pickimage();
             },
-            child: pathEncoded.isEmpty ? CircleAvatar(
-              radius: 60,
-              backgroundColor: Color.fromARGB(255, 77, 7, 2),
-            ) : CircleAvatar(
-              radius: 60,
-              backgroundImage: MemoryImage(Base64Decoder().convert(pathEncoded)),
-            ) ,
+            child: pathEncoded.isEmpty
+                ? CircleAvatar(
+                    radius: 60,
+                    backgroundColor: Color.fromARGB(255, 77, 7, 2),
+                  )
+                : CircleAvatar(
+                    radius: 60,
+                    backgroundImage:
+                        MemoryImage(Base64Decoder().convert(pathEncoded)),
+                  ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           TextFormField(
             controller: _nameController,
             decoration: InputDecoration(
@@ -167,6 +172,9 @@ class _FormScreenState extends State<FormScreen> {
   String pathEncoded = '';
   pickimage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    // final String cameraAddress = image!.path.toString();
+    // print('Hello');
+    // print(cameraAddress);
     final bytes = File(image!.path).readAsBytesSync();
     pathEncoded = base64Encode(bytes);
     setState(() {});
