@@ -30,8 +30,7 @@ class _FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
         children: [
           GestureDetector(
             onTap: () {
@@ -124,7 +123,7 @@ class _FormScreenState extends State<FormScreen> {
                 clearContollers();
               },
               icon: (Icon(Icons.add)),
-              label: Text('ADD'))
+              label: Text('ADD')),
         ],
       ),
     );
